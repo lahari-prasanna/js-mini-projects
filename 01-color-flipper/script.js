@@ -11,3 +11,11 @@ btn.addEventListener("click",function(){
     document.body.style.backgroundColor=selectedColor;
     colourText.textContent=selectedColor;
 })
+
+const copybtn=document.getElementById("cpy-btn");
+copybtn.addEventListener("click",function(){
+    const currentColor=colourText.textContent;
+    navigator.clipboard.writeText(currentColor).then(function () {
+    alert("Copied: " + currentColor);
+  });
+})
