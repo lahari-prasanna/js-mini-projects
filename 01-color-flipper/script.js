@@ -12,10 +12,24 @@ btn.addEventListener("click",function(){
     colourText.textContent=selectedColor;
 })
 
-const copybtn=document.getElementById("cpy-btn");
-copybtn.addEventListener("click",function(){
-    const currentColor=colourText.textContent;
-    navigator.clipboard.writeText(currentColor).then(function () {
-    alert("Copied: " + currentColor);
+// const copybtn=document.getElementById("cpy-btn");
+// copybtn.addEventListener("click",function(){
+//     const currentColor=colourText.textContent;
+//     navigator.clipboard.writeText(currentColor).then(function () {
+//     alert("Copied: " + currentColor);
+//   });
+// })
+const copybtn = document.getElementById("cpy-btn");
+const copyStatus = document.getElementById("copy-status");
+
+copybtn.addEventListener("click", function () {
+  const currentColor = colourText.textContent;
+  navigator.clipboard.writeText(currentColor).then(function () {
+    copyStatus.textContent = "Copied!";
+    
+    // Clear message after 2 seconds
+    setTimeout(() => {
+      copyStatus.textContent = "";
+    }, 2000);
   });
-})
+});
